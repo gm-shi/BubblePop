@@ -26,7 +26,7 @@ class HighScoreViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         highScore.sort {$0.score > $1.score}
-        
+
         self.highScore = readHighScore()
     }
     

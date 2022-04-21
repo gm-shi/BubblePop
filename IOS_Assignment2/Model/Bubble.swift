@@ -15,28 +15,29 @@ class Bubble: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         selectColorAndScore()
-        self.frame = CGRect(x: xPosition, y: yPosition, width: 50, height: 50)
-        self.layer.cornerRadius = 0.5 * self.bounds.size.width
-    }
 
+    }
+//assign the color and socre based on probabilities
     func selectColorAndScore() {
         let randomNumber = Int.random(in: 0..<1000)
         switch(randomNumber){
-            case 0..<400:
-                self.backgroundColor = .red
-                self.score = 1
-            case 400..<700:
-                self.backgroundColor = .purple
-                self.score = 2
-            case 700..<850:
-                self.backgroundColor = .green
-                self.score = 5
-            case 850..<950:
-                self.backgroundColor = .blue
-                self.score = 8
-            default:
-                self.backgroundColor = .black
-                self.score = 10
+        case 0..<400:
+            self.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.1295394519, blue: 0.1346460857, alpha: 1)
+            self.score = 1
+        case 400..<700:
+            self.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+            self.score = 2
+        case 700..<850:
+            self.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            self.score = 5
+        case 850..<950:
+            self.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            self.score = 8
+        case 950..<999:
+            self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            self.score = 10
+        default:
+            print("error")
         }
     }
 

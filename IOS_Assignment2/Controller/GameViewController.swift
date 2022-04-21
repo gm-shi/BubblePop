@@ -23,7 +23,13 @@ class GameViewController: UIViewController {
     var highScore = 0
     var countdownTimer = Timer()
     var countdownTime = 3
-
+    var yPosition: Int = 0
+    var xPosition: Int = 0
+    
+    
+    
+    
+    
     @IBOutlet var countdownLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,11 +84,14 @@ class GameViewController: UIViewController {
     }
     
     @objc func generateBubble() {
+       
         let numberOfBubbles = Int.random(in: 5...maximumBubble)
         for _ in 1...numberOfBubbles {
             if currentBubble < maximumBubble{
                 let bubble = Bubble()
-                if !isIntersected(bubble) && isInTheGameView(bubble){
+                createBubble(bubble)
+//                && isInTheGameView(bubble)
+                if !isIntersected(bubble) {
                     bubbles.append(bubble)
                     bubble.animation()
                     bubble.addTarget(self, action: #selector(bubblePressed), for: .touchUpInside)
@@ -93,18 +102,26 @@ class GameViewController: UIViewController {
         }
     }
     
-    func getGameViewXY() -> [CGFloat]{
+    func createBubble(_ bubble: Bubble) {
         let frm = view.frame
-        let bottom = frm.maxY - 150
-        let right = frm.maxX - 50
-        let top = remainingTimeLabel.frame.origin.y + 75
-        let coordination = [top, bottom, right]
-        return coordination
+        yPosition = Int.random(in: Int(remainingTimeLabel.frame.origin.y) + 75...Int(frm.maxY) - 150)
+        xPosition = Int.random(in: 25...Int(frm.maxX) - 50)
+        bubble.frame = CGRect(x: xPosition, y: yPosition, width: 50, height: 50)
+        bubble.layer.cornerRadius = 0.5 * bubble.bounds.size.width
     }
-    func isInTheGameView(_ bubble: Bubble) -> Bool {
-        let gameViewCoordination = getGameViewXY()
-        return bubble.frame.origin.x < gameViewCoordination[2] && bubble.frame.origin.y < gameViewCoordination[1] && bubble.frame.origin.y > gameViewCoordination[0]
-    }
+    
+//    func getGameViewXY() -> [CGFloat]{
+//        let frm = view.frame
+//        let bottom = frm.maxY - 150
+//        let right = frm.maxX - 50
+//        let top = remainingTimeLabel.frame.origin.y + 75
+//        let coordination = [top, bottom, right]
+//        return coordination
+//    }
+//    func isInTheGameView(_ bubble: Bubble) -> Bool {
+//        let gameViewCoordination = getGameViewXY()
+//        return bubble.frame.origin.x < gameViewCoordination[2] && bubble.frame.origin.y < gameViewCoordination[1] && bubble.frame.origin.y > gameViewCoordination[0]
+//    }
     
     func setHighScore() {
         let vc = HighScoreViewController()
