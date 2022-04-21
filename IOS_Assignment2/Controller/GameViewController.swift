@@ -79,7 +79,7 @@ class GameViewController: UIViewController {
     }
     // generate bubbles with a random number
     @objc func generateBubble() {
-        let numberOfBubbles = Int.random(in: 5...maximumBubble)
+        let numberOfBubbles = Int.random(in: 1...maximumBubble)
         for _ in 1...numberOfBubbles {
             if currentBubble < maximumBubble{
                 let bubble = Bubble()
