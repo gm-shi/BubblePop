@@ -1,8 +1,8 @@
 //
-//  BlueViewController.swift
-//  1-Navigation Controller
+//  SettingViewController.swift
+//  IOS_Assignment2
 //
-//  Created by Hua Zuo on 7/4/21.
+//  Created by Gongming Shi on 18/04/2022.
 //
 
 import UIKit
@@ -18,11 +18,8 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         bubbleNumberLabel.text = String(Int(bubbleNumberSlider.value))
         timeSliderLabel.text = String(Int(timeSlider.value))
-        // Do any additional setup after loading the view.
-        
     }
     
-
     @IBAction func handleTimeSliderChange(_ sender: UISlider) {
         timeSliderLabel.text = String(Int(timeSlider.value))
     }
@@ -31,6 +28,7 @@ class SettingViewController: UIViewController {
         bubbleNumberLabel.text = String(Int(bubbleNumberSlider.value))
 
     }
+    //pass parameters to game view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToGame" {
             let VC = segue.destination as! GameViewController

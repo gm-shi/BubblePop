@@ -1,8 +1,8 @@
 //
 //  HighScoreViewController.swift
-//  1-Navigation Controller
+//  IOS_Assignment2
 //
-//  Created by Hua Zuo on 7/4/21.
+//  Created by Gongming Shi on 18/04/2022.
 //
 
 import UIKit
@@ -23,8 +23,7 @@ class HighScoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        //sort high score
         highScore.sort {$0.score > $1.score}
 
         self.highScore = readHighScore()
@@ -42,7 +41,7 @@ class HighScoreViewController: UIViewController {
         var updatedHighScoreFromGame: [GameScore] = readHighScore()
         
         updatedHighScoreFromGame.append(GameScore(name: newName, score: newScore))
-        
+        // keep only 3 highest score
         if updatedHighScoreFromGame.count > 3 {
             updatedHighScoreFromGame.sort {$0.score > $1.score}
             updatedHighScoreFromGame.removeLast()
@@ -62,7 +61,7 @@ class HighScoreViewController: UIViewController {
             } else {
                 return []
             }
-        }else {
+        } else {
                 return []
             }
     }
@@ -79,7 +78,6 @@ class HighScoreViewController: UIViewController {
     }
 
 }
-
 
 extension HighScoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -99,5 +97,4 @@ extension HighScoreViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = "Score: \(score.score)"
         return cell
     }
-    
 }

@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  1-Navigation Controller
+//  IOS_Assignment2
 //
-//  Created by Hua Zuo on 7/4/21.
+//  Created by Gongming Shi on 18/04/2022.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // initial view controller
     }
 
 

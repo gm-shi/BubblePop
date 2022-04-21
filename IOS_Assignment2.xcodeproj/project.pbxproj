@@ -17,6 +17,8 @@
 		54D7C28F261D3B8000BC61F9 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C28E261D3B8000BC61F9 /* HighScoreViewController.swift */; };
 		54D7C292261D3BC100BC61F9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C291261D3BC100BC61F9 /* GameViewController.swift */; };
 		54D7C29C261D6AE400BC61F9 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C29B261D6AE400BC61F9 /* Bubble.swift */; };
+		A6C16EB228118E8A0053C907 /* pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A6C16EB128118E8A0053C907 /* pop.mp3 */; };
+		A6C16EB5281191B80053C907 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C16EB4281191B80053C907 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		54D7C28E261D3B8000BC61F9 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		54D7C291261D3BC100BC61F9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		54D7C29B261D6AE400BC61F9 /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
+		A6C16EB128118E8A0053C907 /* pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pop.mp3; sourceTree = "<group>"; };
+		A6C16EB4281191B80053C907 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C16EB5281191B80053C907 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,7 @@
 			children = (
 				54D7C273261D328900BC61F9 /* IOS_Assignment2 */,
 				54D7C272261D328900BC61F9 /* Products */,
+				A6C16EB3281191B80053C907 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +86,7 @@
 		54D7C273261D328900BC61F9 /* IOS_Assignment2 */ = {
 			isa = PBXGroup;
 			children = (
+				A6C16EAE28118E1D0053C907 /* Resources */,
 				54D7C274261D328900BC61F9 /* AppDelegate.swift */,
 				54D7C276261D328900BC61F9 /* SceneDelegate.swift */,
 				54D3081E2626F44F002A2E6A /* Model */,
@@ -101,6 +108,22 @@
 				54D7C291261D3BC100BC61F9 /* GameViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A6C16EAE28118E1D0053C907 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6C16EB128118E8A0053C907 /* pop.mp3 */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A6C16EB3281191B80053C907 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6C16EB4281191B80053C907 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C16EB228118E8A0053C907 /* pop.mp3 in Resources */,
 				54D7C281261D328C00BC61F9 /* LaunchScreen.storyboard in Resources */,
 				54D7C27E261D328C00BC61F9 /* Assets.xcassets in Resources */,
 				54D7C27C261D328A00BC61F9 /* Main.storyboard in Resources */,
