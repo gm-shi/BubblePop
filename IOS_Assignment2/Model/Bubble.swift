@@ -44,6 +44,7 @@ class Bubble: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //get the score of this bubble
     func getScore() -> Int {
         return self.score
     }

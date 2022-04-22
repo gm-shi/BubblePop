@@ -8,8 +8,8 @@
 import UIKit
 import AVFoundation
 
-
 class GameViewController: UIViewController {
+    
     @IBOutlet weak var remainingTimeLabel: UILabel!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var highScoreLabel: UILabel!
@@ -100,7 +100,7 @@ class GameViewController: UIViewController {
     func createBubbleView(_ bubble: Bubble) {
         let frm = view.frame
         let yPosition = Int.random(in: Int(remainingTimeLabel.frame.origin.y) + 75...Int(frm.maxY) - 150)
-        let xPosition = Int.random(in: 25...Int(frm.maxX) - 50)
+        let xPosition = Int.random(in: 25...Int(frm.maxX) - 75)
         bubble.frame = CGRect(x: xPosition, y: yPosition, width: 50, height: 50)
         bubble.layer.cornerRadius = 0.5 * bubble.bounds.size.width
     }
@@ -130,6 +130,7 @@ class GameViewController: UIViewController {
         var randomNumber = Int.random(in: 0...currentBubble)
         for bubble in bubbles {
             if randomNumber >= 0{
+                bubble.flash()
                 bubble.removeFromSuperview()
                 randomNumber -= 1
                 if let index = bubbles.firstIndex(of: bubble){
@@ -152,8 +153,10 @@ class GameViewController: UIViewController {
         if let index = bubbles.firstIndex(of: sender){
             bubbles.remove(at: index)
         }
-        // emove pressed bubble from view
+        // remove pressed bubble from view
+        sender.flash()
         sender.removeFromSuperview()
+        // check if current score geater than high score
         updatingHighScore()
     }
     // make sound player to load the sound effect,
@@ -163,8 +166,8 @@ class GameViewController: UIViewController {
         do {
             soundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath))
             soundPlayer?.prepareToPlay()
-        } catch  {
-            print(error)
+        } catch let error as NSError {
+            print(error.debugDescription)
         }
     }
 }
