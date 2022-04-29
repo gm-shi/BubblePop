@@ -16,7 +16,6 @@ let KEY_HIGH_SCORE = "highScore"
 
 class HighScoreViewController: UIViewController {
     
-    
     @IBOutlet var HighScoreTableView: UITableView!
     
     var highScore:[GameScore] = []
@@ -28,7 +27,6 @@ class HighScoreViewController: UIViewController {
 
         self.highScore = readHighScore()
     }
-    
 
     @IBAction func returnMainPage(_ sender: UIButton) {
         
@@ -50,8 +48,7 @@ class HighScoreViewController: UIViewController {
         defaults.set(try? PropertyListEncoder().encode(updatedHighScoreFromGame), forKey: KEY_HIGH_SCORE)
     }
 
-
-
+    // read high score from user defualt value
     func readHighScore() -> [GameScore] {
         let defaults = UserDefaults.standard
         
@@ -66,6 +63,7 @@ class HighScoreViewController: UIViewController {
             }
     }
     
+    //return the highest socre for game view to use
     func getHighestScore() -> Int {
         var score = readHighScore()
         if score.count < 1 {
@@ -89,7 +87,7 @@ extension HighScoreViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return highScore.count
     }
-    
+    // setting of cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "highScoreCell", for: indexPath)
         let score = highScore[indexPath.row]

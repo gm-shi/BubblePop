@@ -37,17 +37,17 @@ class GameViewController: UIViewController {
         setHighScore()
         bubbleSoundEffect()
         self.navigationItem.setHidesBackButton(true, animated: true)
-        
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { countdownTimer in
             self.countdown()
         }
     }
-    // 3, 2, 1 coundown timer
+    // 3, 2, 1 countdown timer
     @objc func countdown(){
         countdownTime -= 1
         countdownLabel.text = String(countdownTime)
         if countdownTime == 0 {
             countdownLabel.text = "Go"
+            //start game timer when countdown finishes
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
                     timer in
                     if self.countdownTime > -1 {

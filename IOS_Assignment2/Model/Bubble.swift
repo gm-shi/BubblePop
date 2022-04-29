@@ -8,9 +8,6 @@
 import UIKit
 
 class Bubble: UIButton {
-    
-    let xPosition = Int.random(in: 25...400)
-    let yPosition = Int.random(in: 25...800)
     var score = 0
     override init(frame: CGRect) {
         super.init(frame: frame)
